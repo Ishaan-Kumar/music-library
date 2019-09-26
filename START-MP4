@@ -1,0 +1,10 @@
+#!/bin/sh
+java -cp youtube-playlist-fetcher.main.jar com.xymenapps.youtube.YPlaylist_Fetcher
+youtube-dl -i --download-archive 'archive-mp4.txt' -k --no-post-overwrites --recode-video mp4 --audio-format mp3 -f bestvideo+bestaudio -o '/media/ishaan/Win_D/IK/Music-Library/bestvideo-bestaudio-mp4-mp3/%(playlist_title)s/%(title)s.%(ext)s' -a all_playlists
+rm -rf /media/ishaan/Win_D/IK/Music-Library/Videos
+cp -rv /media/ishaan/Win_D/IK/Music-Library/bestvideo-bestaudio-mp4-mp3 /media/ishaan/Win_D/IK/Music-Library/Videos
+find /media/ishaan/Win_D/IK/Music-Library/Videos -type f -name *.webm -delete
+find /media/ishaan/Win_D/IK/Music-Library/Videos -type f -name *.opus -delete
+find /media/ishaan/Win_D/IK/Music-Library/Videos -type f -name *.mkv -delete
+find /media/ishaan/Win_D/IK/Music-Library/Videos -type f -name *.m4a -delete
+find /media/ishaan/Win_D/IK/Music-Library/Videos -type f -name *.mp3 -delete
