@@ -1,0 +1,13 @@
+#!/bin/sh
+java -cp youtube-playlist-fetcher.main.jar com.xymenapps.youtube.YPlaylist_Fetcher
+youtube-dl --add-metadata -i --download-archive 'BESTVIDEO-BESTAUDIO/archive.txt' -k --no-post-overwrites -f bestvideo+bestaudio -o 'BESTVIDEO-BESTAUDIO/%(playlist_title)s/%(title)s.%(ext)s' -a test_playlists
+rm -rf Music-Videos/BEST
+mkdir Music-Videos
+cp -rv BESTVIDEO-BESTAUDIO Music-Videos/BEST
+find Music-Videos/BEST -type f -name *.txt -delete
+find Music-Videos/BEST -type f -name *.f*.mp4 -delete
+find Music-Videos/BEST -type f -name *.f*.webm -delete
+find Music-Videos/BEST -type f -name *.f*.mkv -delete
+find Music-Videos/BEST -type f -name *.f*.m4a -delete
+find Music-Videos/BEST -type f -name *.opus -delete
+find Music-Videos/BEST -type f -name *.mp3 -delete

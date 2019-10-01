@@ -1,9 +1,11 @@
 #!/bin/sh
 java -cp youtube-playlist-fetcher.main.jar com.xymenapps.youtube.YPlaylist_Fetcher
-youtube-dl --download-archive 'archive-mp3.txt' -k --no-post-overwrites -x --audio-format mp3 -f bestaudio -o '/media/ishaan/Win_D/IK/Music-Library/bestaudio-mp3/%(playlist_title)s/%(title)s.%(ext)s' -a all_playlists
-rm -rf /media/ishaan/Win_D/IK/Music-Library/Songs
-cp -rv /media/ishaan/Win_D/IK/Music-Library/bestaudio-mp3 /media/ishaan/Win_D/IK/Music-Library/Songs
-find /media/ishaan/Win_D/IK/Music-Library/Songs -type f -name *.webm -delete
-find /media/ishaan/Win_D/IK/Music-Library/Songs -type f -name *.opus -delete
-find /media/ishaan/Win_D/IK/Music-Library/Songs -type f -name *.mkv -delete
-find /media/ishaan/Win_D/IK/Music-Library/Songs -type f -name *.m4a -delete
+youtube-dl --add-metadata --download-archive 'BESTAUDIO/archive.txt' -k --no-post-overwrites -x --audio-format mp3 -f bestaudio -o 'BESTAUDIO/%(playlist_title)s/%(title)s.%(ext)s' -a test_playlists
+rm -rf Songs/MP3
+mkdir Songs
+cp -rv BESTAUDIO Songs/MP3
+find Songs/MP3 -type f -name *.webm -delete
+find Songs/MP3 -type f -name *.opus -delete
+find Songs/MP3 -type f -name *.mkv -delete
+find Songs/MP3 -type f -name *.m4a -delete
+find Songs/MP3 -type f -name *.txt -delete
