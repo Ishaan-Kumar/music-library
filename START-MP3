@@ -1,4 +1,8 @@
 #!/bin/sh
+now=$(date +"%r")
+echo >> log
+echo ---------------------------------------- >> log
+echo $0 STARTED AT $now >> log
 java -cp youtube-playlist-fetcher.main.jar com.xymenapps.youtube.YPlaylist_Fetcher
 youtube-dl --add-metadata --download-archive 'BESTAUDIO/archive.txt' -k --no-post-overwrites -x --audio-format mp3 -f bestaudio -o 'BESTAUDIO/%(playlist_title)s/%(title)s.%(ext)s' -a all_playlists
 rm -rf Songs/MP3
@@ -9,3 +13,7 @@ find Songs/MP3 -type f -name *.opus -delete
 find Songs/MP3 -type f -name *.mkv -delete
 find Songs/MP3 -type f -name *.m4a -delete
 find Songs/MP3 -type f -name *.txt -delete
+now=$(date +"%r")
+echo $0 ENDED AT $now >> log
+echo ---------------------------------------- >> log
+echo >> log
