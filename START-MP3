@@ -1,6 +1,6 @@
 #!/bin/sh
 java -cp youtube-playlist-fetcher.main.jar com.xymenapps.youtube.YPlaylist_Fetcher
-youtube-dl --add-metadata --download-archive 'BESTAUDIO/archive.txt' -k --no-post-overwrites -x --audio-format mp3 -f bestaudio -o 'BESTAUDIO/%(playlist_title)s/%(title)s.%(ext)s' -a test_playlists
+youtube-dl --add-metadata --download-archive 'BESTAUDIO/archive.txt' -k --no-post-overwrites -x --audio-format mp3 -f bestaudio -o 'BESTAUDIO/%(playlist_title)s/%(title)s.%(ext)s' -a all_playlists
 rm -rf Songs/MP3
 mkdir Songs
 cp -rv BESTAUDIO Songs/MP3
